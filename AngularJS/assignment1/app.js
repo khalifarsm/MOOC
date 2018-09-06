@@ -1,8 +1,9 @@
 (function () {
     'use strict';
     angular.module('myapp', [])
-        .controller('controller1', controllerFunction);
-    function controllerFunction($scope) {
+        .controller('controller1', ControllerFunction);
+ControllerFunction.$inject=[$scope];
+    function ControllerFunction($scope) {
         $scope.onClick = function () {
             if ($scope.lunch != null) {
                 var splitted = $scope.lunch.split(",");

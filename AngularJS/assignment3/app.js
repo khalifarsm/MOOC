@@ -12,7 +12,7 @@
 		return ddo;
 	}
 
-	
+	Controller.$inject=[$http];
 	function Controller($http)
 	{
 		var c1=this;

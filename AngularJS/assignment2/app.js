@@ -6,7 +6,7 @@
 	.controller("controller2",Controller2)
 	.service("list",ListService);
 
-	
+	Controller1.$inject[list];
 	function Controller1(list)
 	{
 		var c1=this;
@@ -18,6 +18,7 @@
 		}
 	};
 	
+	Controller2.$inject[list];
 	function Controller2(list)
 	{
 		var c2=this;
