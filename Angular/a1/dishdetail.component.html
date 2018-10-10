@@ -1,0 +1,40 @@
+
+<!-- saved from url=(0112)https://s3.amazonaws.com/coursera-uploads/peer-review/ba89945085fa0847990aad441ac7276f/dishdetail.component.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="container" fxlayout="row" fxlayout.sm="column" fxlayout.xs="column" fxlayoutalign.gt-md="space-around center" fxlayoutgap="10px" fxlayoutgap.xs="0">
+
+  <div fxflex="40">
+    <mat-card *ngif="dish">
+      <mat-card-header>
+        <mat-card-title>
+          <h3> {{dish.name | uppercase}} </h3>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image="" src="./dishdetail.component_files/{{dish.image}}" alt="{{dish.name}}">
+      <mat-card-content>
+        <p> {{dish.description}} </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button="">LIKE</button>
+        <button mat-button="">SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div fxflex="40">
+    <mat-list *ngif="dish">
+      <h3> Comments </h3>
+      <mat-list-item *ngfor="let comment of dish.comments">
+        <p matline="">
+          <span> {{comment.comment}} </span>
+        </p>
+        <p matline="">
+          <span> {{comment.rating}} Stars</span>
+        </p>
+        <p matline="">
+            <span> -- {{ comment.author }} {{comment.date | date}} </span>
+        </p>  
+      </mat-list-item>
+    </mat-list>
+  </div>
+  
+</div></body></html>

@@ -1,0 +1,24 @@
+
+<!-- saved from url=(0106)https://s3.amazonaws.com/coursera-uploads/peer-review/08a6be98dcc2a1ab6e85dc439a2b0d1e/menu.component.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="container" fxlayout="column" fxlayoutgap="10px">
+
+  <div fxflex="">
+    <div>
+      <h3>Menu</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxflex="">
+    <mat-grid-list cols="2" rowheight="200px">
+      <mat-grid-tile *ngfor="let dish of dishes">
+          <img height="200px" src="./menu.component_files/{{dish.image}}" alt="{{dish.name}}">
+          <mat-grid-tile-footer>
+            <h1 matline=""> {{dish.name | uppercase}} </h1>      
+          </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <app-dishdetail></app-dishdetail>
+</div></body></html>
