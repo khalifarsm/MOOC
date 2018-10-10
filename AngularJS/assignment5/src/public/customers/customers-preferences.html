@@ -1,0 +1,15 @@
+<div ng-if="customer.infoCustomer.length > 0">
+      <h3>Customer's Preferences</h3>
+      <ul>
+        <li ng-repeat="info in customer.infoCustomer">
+          
+          <img ng-src="https://jvillanueva-angularjs.herokuapp.com/images/{{info.short_name}}.jpg"/><br/>
+          Customer: {{info.customer.firstname}} {{info.customer.lastname}}<br/>
+          Item name: {{ info.name }}<br/>
+          Item Description: {{info.description}}
+        </li>
+      </ul>
+</div>
+<div ng-if="customer.infoCustomer.length == 0">
+	<div>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></div>
+</div>

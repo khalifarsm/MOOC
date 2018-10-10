@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Module 4 Solution Starter</title>
-  <script>
-    var names = []; // DO NOT REMOVE
-  </script>
-  <script src="SpeakHello.js"></script>
-  <script src="SpeakGoodBye.js"></script>
-  <script src="script.js"></script>
-</head>
-<body>
-  <h1>Module 4 Solution Starter</h1>
-</body>
+<html ng-app='MenuApp'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Assigment 4 Solution</title>
+  </head>
+  <body>
+    <h1>Welcome to My Restaurant</h1>
+    <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/menuapp/menuapp.module.js"></script>
+    <script src="src/menuapp/data.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
+    <!-- 'ShoppingList' module artifacts -->
+    <script src="src/menuapp/categories.component.js"></script>
+    <script src="src/menuapp/categories.controller.js"></script>
+    <script src="src/menuapp/menudata.service.js"></script>
+    <script src="src/menuapp/items.controller.js"></script>
+    <script src="src/menuapp/items.component.js"></script>
+
+
+  </body>
 </html>

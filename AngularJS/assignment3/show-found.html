@@ -1,0 +1,19 @@
+<br><br>
+
+<div ng-if="!empty">
+  <h2>List Of Matched Items</h2>
+<div class="grid-container">
+  <div class="grid-item" ng-repeat-start="item in found" ng-repeat-end>
+  {{item.name}}<br><br>
+  {{item.short_name}}<br><br>
+  {{item.description}}
+  <button ng-click="onRemove({index : $index})">
+    Don't want this one!
+  </button>
+  </div>
+</div>
+</div>
+<br><br>
+<div>
+  <span><font style="color: red;">{{message}}</font></span>
+</div>

@@ -1,0 +1,74 @@
+
+  <div ng-controller="SignUpController as sig">
+    <h1>Please, enter your data!</h1>
+
+    <fieldset>
+      <legend style="color:white">Registration</legend>
+      <form name="signForm" novalidate>
+        <span>First name:</span>
+        <input type="text" name="firstname" placeholder="Enter your first name"
+          ng-model="sig.user.firstname"
+          required
+          
+          style="background-color: black;margin-left:29px !important;width:200px !important">
+          
+          <span
+            ng-if="signForm.firstname.$error.required && signForm.firstname.$touched">
+            Firstname must be at least 4 characters long
+          </span>
+         
+          <br>
+          <span>Last name:</span>
+          <input type="text" name="lastname" placeholder="Enter your lastname"
+          ng-model="sig.user.lastname"
+          required 
+          
+          style="background-color: black;margin-left:29px !important;width:200px !important">
+          
+          <span
+            ng-if="signForm.lastname.$error.required && signForm.lastname.$touched">
+            Lastname must be at least 4 characters long
+          </span>
+          <br>
+        <span>E-mail:</span>
+        <input type="email" name="email" placeholder="Email"
+        
+          ng-model="sig.user.email"
+          required 
+          
+          style="background-color: black;margin-left:57px !important;width:200px !important">
+          <span ng-if="signForm.email.$invalid && signForm.email.$touched">
+            Must be a valid email address: nickname@domain format
+          </span>
+          <br>
+        <span>Phone:</span>
+        <input type="text" name="phone" placeholder="Phone ##-#######"
+          ng-model="sig.user.phone"
+          pattern="(\d{2})-(\d{7})"
+          required
+          
+          style="background-color: black;margin-left:57px !important;width:200px !important">
+          <span ng-if="signForm.phone.$invalid && signForm.phone.$touched">
+            Phone must be in the format ##-#######.
+          </span>
+          <br>
+        <span>Menu Item:</span>
+        <input type="text" name="item" placeholder="Enter your menu item"
+          ng-model="sig.user.item"
+          
+          style="background-color: black;margin-left:25px !important;width:200px !important">
+        <br/>
+        <button
+          ng-disabled="signForm.$invalid"
+          ng-click="sig.submit()">Submit</button>&nbsp;&nbsp;
+          <input type="reset" value="Reset"></input>
+   
+      </form>
+    </fieldset>
+
+  <div ng-if="sig.completed" style="color:green;font-size:16px !important;">Your information has been saved!</div>
+  <div ng-if="sig.error" style="color:red;font-size:16px !important;">Menu item not found!</div>
+
+  </div>
+  
+
