@@ -1,0 +1,78 @@
+
+<!-- saved from url=(0112)https://s3.amazonaws.com/coursera-uploads/peer-review/7f236b4c27b48ff44e062bada2211387/dishdetail.component.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="container" fxlayout="row wrap" fxlayout.sm="column" fxlayout.xs="column" fxlayoutalign.gt-md="space-around center" fxlayoutgap="10px" fxlayoutgap.xs="0">
+
+  <div fxflex="100">
+    <div>
+      <h3 *ngif="dish">{{dish.name | uppercase}}</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxflex="40" *ngif="dish">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>{{dish.name | uppercase}}</h3>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image="" src="./dishdetail.component_files/{{dish.image}}" alt="{{dish.name}}">
+      <mat-card-content>
+        <p>{{dish.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button="" [routerlink]="[&#39;/dishdetail&#39;, prev]">
+          <span class="fa fa-chevron-left fa-lg"></span>
+        </button>
+        <button mat-button="" (click)="goBack()">BACK</button>
+        <button mat-button="">LIKE</button>
+        <button mat-button="">SHARE</button>
+        <span class="flex-spacer"></span>
+        <button mat-button="" [routerlink]="[&#39;/dishdetail&#39;, next]">
+          <span class="fa fa-chevron-right fa-lg"></span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+  <div fxflex="40" *ngif="dish">
+    <mat-list>
+      <h3> Comments</h3>
+      <mat-list-item *ngfor="let comnt of dish.comments">
+        <p matline=""> {{comnt.comment}} </p>
+        <p matline=""> {{comnt.rating}} Stars</p>
+        <p matline=""> -- {{comnt.author}} {{comnt.date|date}}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list *ngif="!commentForm.invalid">
+      <p matline=""> {{commt.comment}} </p>
+      <p matline=""> {{commt.rating}} Stars</p>
+      <p matline=""> -- {{commt.author}}</p>
+    </mat-list>
+    <br>
+    <form novalidate="" [formgroup]="commentForm" (ngsubmit)="onSubmit()" class="author-form">
+      <p>
+        <mat-form-field class="full-width">
+          <input matinput="" formcontrolname="author" placeholder="Name" type="text" required="">
+          <mat-error *ngif="formErrors.author">{{formErrors.author}}</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-slider formcontrolname="rating" min="1" max="5" step="1" thumblabel="true" tickinterval="1"></mat-slider>
+      </p>
+      <p>
+        <mat-form-field class="full-width">
+          <textarea class="full-height" matinput="" formcontrolname="comment" placeholder="Your Comment" required=""></textarea>
+          <mat-error *ngif="formErrors.comment">{{formErrors.comment}}</mat-error>
+        </mat-form-field>
+      </p>
+      <button type="submit" mat-button="" class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+    </form>
+
+
+  </div>
+
+</div></body></html>
